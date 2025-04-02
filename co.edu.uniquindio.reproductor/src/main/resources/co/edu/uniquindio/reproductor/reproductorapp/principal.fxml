@@ -8,7 +8,7 @@
 <Pane fx:id="pane_1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.reproductor.reproductorapp.viewController.PrincipalViewController">
    <children>
       <Button fx:id="bt_reproducir" layoutX="191.0" layoutY="183.0"
-              mnemonicParsing="false" onAction="#onReproducir"
+              mnemonicParsing="false" onAction="#onPlay"
               text="Reproducir" focusTraversable="false">
          <font>
             <Font size="20.0" />
@@ -33,7 +33,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Button fx:id="bt_cargarArchivo" layoutX="352.0" layoutY="183.0" mnemonicParsing="false" onAction="#onCargarArchivo" text="Cargar Archivo" focusTraversable="false">
+      <Button fx:id="bt_cargarArchivo" layoutX="352.0" layoutY="183.0" mnemonicParsing="false" onAction="#onLoadFile" text="Cargar Archivo" focusTraversable="false">
          <font>
             <Font size="20.0" />
          </font>

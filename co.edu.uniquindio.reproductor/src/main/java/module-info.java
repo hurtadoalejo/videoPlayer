@@ -2,6 +2,7 @@ module co.edu.uniquindio.reproductor.reproductorapp {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.desktop;
+    requires com.sun.jna;
 
 
     opens co.edu.uniquindio.reproductor.reproductorapp to javafx.fxml;

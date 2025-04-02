@@ -1,6 +1,8 @@
 package co.edu.uniquindio.reproductor.reproductorapp.viewController;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -12,8 +14,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import co.edu.uniquindio.reproductor.reproductorapp.App;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
+
+import javax.security.auth.login.AccountLockedException;
 
 public class PrincipalViewController {
 
@@ -53,11 +55,11 @@ public class PrincipalViewController {
     private Button bt_cargarArchivo;
 
     @FXML
-    void onReproducir() {
-        reproducir();
+    void onPlay() {
+        play();
     }
 
-    private void reproducir() {
+    private void play() {
         if (verifyTextField()){
             ta_1.setText(principalController.playVideo(tf_1.getText()));
             tf_1.clear();
@@ -74,18 +76,38 @@ public class PrincipalViewController {
     }
 
     @FXML
-    void onCargarArchivo() {
-        cargarArchivo();
+    void onLoadFile() {
+        loadFile();
     }
 
-    private void cargarArchivo() {
-        final FileChooser fileChooser = new FileChooser();
-        Stage stage = (Stage) pane_1.getScene().getWindow();
-        File file = fileChooser.showOpenDialog(stage);
-
-        if (file != null) {
-            tf_1.setText(file.getName());
+    private void loadFile() {
+        String selectedFile = openFileDialog();
+        if (selectedFile != null) {
             ta_1.clear();
+            tf_1.setText(getFyleName(selectedFile));
+        }
+    }
+
+    private String getFyleName(String filePath) {
+        if (filePath != null && !filePath.isEmpty()) {
+            return new java.io.File(filePath).getName();
+        }
+        return null;
+    }
+
+    private String openFileDialog() {
+        try {
+            String command = "powershell -Command \"Add-Type -AssemblyName System.windows.forms; $ofd = New-Object System.Windows.Forms.OpenFileDialog; $ofd.Filter = 'Todos los archivos (*.*)|*.*'; $ofd.ShowDialog() | Out-Null; $ofd.FileName\"";
+            Process process = Runtime.getRuntime().exec(command);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+
+            String filePath = reader.readLine();
+            process.waitFor();
+
+            return (filePath != null && !filePath.trim().isEmpty()) ? filePath.trim() : null;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
 
