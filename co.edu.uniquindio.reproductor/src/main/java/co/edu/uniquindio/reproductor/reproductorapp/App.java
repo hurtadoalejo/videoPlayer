@@ -11,6 +11,7 @@ import co.edu.uniquindio.reproductor.reproductorapp.viewController.PrincipalView
 public class App extends Application {
     private Stage primaryStage;
 
+
     @Override
     public void start(Stage primaryStage) throws IOException {
         this.primaryStage = primaryStage;

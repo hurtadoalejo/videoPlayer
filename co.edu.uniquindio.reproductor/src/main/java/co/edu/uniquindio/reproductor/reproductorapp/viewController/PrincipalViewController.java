@@ -1,11 +1,10 @@
 package co.edu.uniquindio.reproductor.reproductorapp.viewController;
 
+import java.io.File;
 import java.net.URL;
-import java.security.Principal;
 import java.util.ResourceBundle;
 
 import co.edu.uniquindio.reproductor.reproductorapp.controller.PrincipalController;
-import co.edu.uniquindio.reproductor.reproductorapp.facade.VideoFacade;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -13,7 +12,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import co.edu.uniquindio.reproductor.reproductorapp.App;
-import co.edu.uniquindio.reproductor.reproductorapp.viewController.PrincipalViewController;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 public class PrincipalViewController {
 
@@ -79,6 +79,13 @@ public class PrincipalViewController {
     }
 
     private void cargarArchivo() {
+        final FileChooser fileChooser = new FileChooser();
+        Stage stage = (Stage) pane_1.getScene().getWindow();
+        File file = fileChooser.showOpenDialog(stage);
+
+        if (file != null) {
+            tf_1.setText(file.getName());
+        }
     }
 
     public void setApp(App app){
