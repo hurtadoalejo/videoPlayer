@@ -84,11 +84,11 @@ public class PrincipalViewController {
         String selectedFile = openFileDialog();
         if (selectedFile != null) {
             ta_1.clear();
-            tf_1.setText(getFyleName(selectedFile));
+            tf_1.setText(getFileName(selectedFile));
         }
     }
 
-    private String getFyleName(String filePath) {
+    private String getFileName(String filePath) {
         if (filePath != null && !filePath.isEmpty()) {
             return new java.io.File(filePath).getName();
         }
