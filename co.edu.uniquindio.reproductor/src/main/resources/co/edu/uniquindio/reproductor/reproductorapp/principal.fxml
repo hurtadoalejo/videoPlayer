@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="pane_1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.reproductor.reproductorapp.viewController.PrincipalViewController">
+   <children>
+      <Button fx:id="bt_reproducir" layoutX="191.0" layoutY="183.0" mnemonicParsing="false" onAction="#onReproducir" text="Reproducir">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <TextField fx:id="tf_1" layoutX="307.0" layoutY="108.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextArea fx:id="ta_1" layoutX="121.0" layoutY="327.0" prefHeight="146.0" prefWidth="463.0">
+         <font>
+            <Font size="20.0" />
+         </font></TextArea>
+      <Label fx:id="lb_titulo" layoutX="225.0" layoutY="32.0" text="Programa reproducción">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb_nombreArchivo" layoutX="88.0" layoutY="115.0" text="Nombre de archivo:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="bt_cargarArchivo" layoutX="352.0" layoutY="183.0" mnemonicParsing="false" onAction="#onCargarArchivo" text="Cargar Archivo">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Label fx:id="lb_reproduciendo" layoutX="78.0" layoutY="277.0" text="Reproduciendo:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
