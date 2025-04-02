@@ -85,6 +85,7 @@ public class PrincipalViewController {
 
         if (file != null) {
             tf_1.setText(file.getName());
+            ta_1.clear();
         }
     }
 
