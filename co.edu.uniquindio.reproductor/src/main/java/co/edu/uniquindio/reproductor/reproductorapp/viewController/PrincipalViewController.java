@@ -61,7 +61,6 @@ public class PrincipalViewController {
         if (verifyTextField()){
             ta_1.setText(principalController.playVideo(tf_1.getText()));
             tf_1.clear();
-            //bt_reproducir.setFocusTraversable(true);
         }
     }
 
