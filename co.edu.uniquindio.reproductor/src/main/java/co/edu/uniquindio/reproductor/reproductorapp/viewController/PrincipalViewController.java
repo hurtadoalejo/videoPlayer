@@ -1,8 +1,10 @@
 package co.edu.uniquindio.reproductor.reproductorapp.viewController;
 
 import java.net.URL;
+import java.security.Principal;
 import java.util.ResourceBundle;
 
+import co.edu.uniquindio.reproductor.reproductorapp.controller.PrincipalController;
 import co.edu.uniquindio.reproductor.reproductorapp.facade.VideoFacade;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -14,6 +16,8 @@ import co.edu.uniquindio.reproductor.reproductorapp.App;
 import co.edu.uniquindio.reproductor.reproductorapp.viewController.PrincipalViewController;
 
 public class PrincipalViewController {
+
+    PrincipalController principalController;
 
     @FXML
     private App app;
@@ -54,8 +58,18 @@ public class PrincipalViewController {
     }
 
     private void reproducir() {
-        VideoFacade videoFacade = new VideoFacade();
-        ta_1.setText(videoFacade.reproducir(ta_1.getText()));
+        if (verifyTextField()){
+            ta_1.setText(principalController.playVideo(tf_1.getText()));
+        }
+    }
+
+    private boolean verifyTextField() {
+        if (tf_1.getText().isBlank()){
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 
     @FXML
@@ -72,6 +86,8 @@ public class PrincipalViewController {
 
     @FXML
     void initialize() {
+        ta_1.setEditable(false);
+        principalController = new PrincipalController(app);
         assert lb_titulo != null : "fx:id=\"lb_titulo\" was not injected: check your FXML file 'principal.fxml'.";
         assert tf_1 != null : "fx:id=\"tf_1\" was not injected: check your FXML file 'principal.fxml'.";
         assert lb_nombreArchivo != null : "fx:id=\"lb_nombreArchivo\" was not injected: check your FXML file 'principal.fxml'.";

@@ -18,16 +18,13 @@ public class VideoFacade {
        videoPlayer = new VideoPlayer();
     }
 
-    public String reproducir(String nombreArchivo) {
+    public String reproducir(String fileName, String type) {
         VideoFile videoFile = new VideoFile();
         Codec codec = new Codec();
-        String texto1 = videoFile.VideoFile(nombreArchivo);
-        String texto2 = codec.Codec("mp4");
-        VideoDecoder decoder = new VideoDecoder();
+        VideoDecoder videoDecoder = new VideoDecoder();
         VideoPlayer videoPlayer = new VideoPlayer();
-        String texto3 = decoder.decode(videoFile, codec);
-        String texto4 = videoPlayer.play(videoFile);
-        String ultimaCadena = texto1 + texto2 + texto3 + texto4;
-        return ultimaCadena;
+        return videoFile.load(fileName) + "\n" + codec.codec(type) + "\n" +
+                videoDecoder.decode(fileName, type) + "\n" + videoPlayer.play(fileName);
+
     }
 }

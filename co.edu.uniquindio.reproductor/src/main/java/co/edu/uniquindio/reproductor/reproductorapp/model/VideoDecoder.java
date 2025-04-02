@@ -1,7 +1,8 @@
 package co.edu.uniquindio.reproductor.reproductorapp.model;
 
 public class VideoDecoder {
-    public String decode(VideoFile file, Codec codec) {
-        return ("Decodificando " + file + " usando " + codec + "...");
+    public VideoDecoder() {}
+    public String decode(String fileName, String type) {
+        return ("Decodificando " + fileName + " usando " + type + "...");
     }
 }

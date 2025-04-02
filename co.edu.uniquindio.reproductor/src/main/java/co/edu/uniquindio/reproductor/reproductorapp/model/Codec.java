@@ -1,7 +1,9 @@
 package co.edu.uniquindio.reproductor.reproductorapp.model;
 
 public class Codec {
-    public String Codec(String type) {
+    public Codec() {}
+
+    public String codec(String type) {
         return ("Códec " + type + " cargado.");
     }
 }
